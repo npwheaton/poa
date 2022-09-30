@@ -1,22 +1,16 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faPen } from '@fortawesome/free-solid-svg-icons'
+import './InsertFormButton.css'
 
 function InsertFormButton(props){
     const handleClicks = () =>{
         props.changeForm();
     }
-    const style = {
-        fontSize: 20,
-        height: "5vw",
-        width: "5vw",
-        color: "black",
-        border:"1px solid black",
-        borderRadius: "5%",
-        display: 'inline-block',
-        margin: 5
-        
-        
     
-            }
-return (<button style={style} className="InsertFormButton" onClick={handleClicks}>+</button>)
+return (<button className="InsertFormButton" onClick={handleClicks}>
+    <span className="buttonText">Add Action</span>
+    <FontAwesomeIcon icon={faPen}  className="button-icon"/>
+</button>)
 }
 export default InsertFormButton;

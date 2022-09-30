@@ -1,0 +1,20 @@
+.TodosFilterButton{
+    display: block;
+    text-align: left;
+}
+.button-input{
+    border: 1px solid #020020;
+    border-radius: 20px / 24px 5px;
+    display: inline-block;
+    margin-left: 4px;
+    padding: 10px;
+    font-size: 1.5rem;
+    user-select: none;
+
+}
+.checked{
+    background-color: #020020;
+    color:#f3f3f3;
+ outline: 1px solid #020020;
+ border: 1px solid #f3f3f3;
+}

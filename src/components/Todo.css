@@ -1,0 +1,59 @@
+.todo{
+    color: white;
+    padding: 10px;
+    border: 1px solid #020020;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 5px;
+}
+.seperator{
+    display: inline-block;
+    text-align: left;
+}
+.todoname{
+    background: rgba(2, 0, 32, 0.8);
+    padding: 3px;
+    border-radius: 10px;
+    font-size: 1.8rem;
+    word-break: break-all;
+}
+.todotextcontainer{
+    margin-bottom: 10px;
+}
+.dtcontainer{
+    margin-bottom: 5px;
+}
+.buttoncontainer{
+    display: inline-block;
+    text-align: right;
+
+}
+.dateTimeDue{
+    background-color:#020020;
+    padding: 2px;
+    font-size: 1rem;
+    border-radius: 5px;
+    
+}
+.button{
+    color: white;
+    font-size: 25px;
+    border-radius: 10px;
+    background: rgba(2, 0, 32, 0.8);
+    margin-left: 5px;
+    border: 1px solid rgba(2, 0, 32, 0.8);
+}
+.accept-button:hover{
+    background: rgb(0, 196, 22);
+    color: black;
+
+}
+.delete-button:hover{
+    background: rgb(222, 9, 9);
+    color: black;
+
+}
+.delete-button{
+    padding: 1px 10px;
+
+}

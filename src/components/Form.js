@@ -1,4 +1,7 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faX,faPaperPlane } from '@fortawesome/free-solid-svg-icons'
+import './Form.css'
 
 function Form(props){
     const dateobj = new Date(props.currentMilliSec);
@@ -72,29 +75,24 @@ function Form(props){
         }
         
     }
-    const style = {
-        height: 25,
-        width: 25,
-        color: "black",
-        padding: 5,
-        border:"1px solid black",
-        borderRadius: "5%",
-        display: 'inline-block',
-        margin: 5
-    
-            }
 
     return ( 
-    <div>
-        <div className="form-cancel" onClick={props.changeForm}/>
-        <form>
-            <input type="text" value={props.inputText} className="form-text" onChange={handleInput} />
-            <input type="date" className="form-date"onInput={handleDate} min={minfulldate} />
-            <input type="time" className="form-time"onInput={handleTime}  />
-            <button style={style} className="form-button" type="submit" onClick={handleTodos}> 
-                <i className="placegolder"></i>
+    <div className="form">
+        <div className="insideForm">
+        <form >
+        <div className="form-cancel" onClick={props.changeForm}>
+        <FontAwesomeIcon icon={faX} />
+        </div>
+            <input type="text" value={props.inputText} className="form-text" placeholder="Enter Text Here" onChange={handleInput} />
+            <input type="date" className="form-date form-dt"onInput={handleDate} min={minfulldate} />
+            <input type="time" className="form-time form-dt"onInput={handleTime}  />
+            <button className="form-button" type="submit" onClick={handleTodos}> 
+                <span className="button-text">Submit</span>
+                <FontAwesomeIcon icon={faPaperPlane} /> 
             </button>
         </form>
+        </div>
+
     </div>
     )
 }

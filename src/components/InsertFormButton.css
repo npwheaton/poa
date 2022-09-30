@@ -1,0 +1,25 @@
+.InsertFormButton{
+    font-size: 40px;
+    color: #020020;
+    background-color: #f3f3f3;
+    border:2px solid #020020;
+    border-radius: 10px;
+    display: 'inline-block';
+    margin: 5px;
+    padding:  5px 15px;
+    
+    
+}
+.InsertFormButton:hover{
+    color: #f3f3f3;
+    background-color: #020020;
+}
+.buttonText{
+    font-size: 25px;
+    font-weight: 500;
+    display: inline-block;
+    margin-right: 3px;
+}
+.button-icon{
+    transform: rotateY(180deg);
+}

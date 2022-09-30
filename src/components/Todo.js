@@ -1,11 +1,11 @@
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faCheck, faXmark } from '@fortawesome/free-solid-svg-icons'
 import React from "react";
+import './Todo.css';
 
 function Todo(props){
 
-        const textstyle = {
-                display: "inline-block",
-                textAlign: "left",
-        }
+
         const deleteHandler =()=>{
                 props.setTodos(props.todos.filter((td)=>{return td !== props.singleTodo}));
 
@@ -40,41 +40,61 @@ function Todo(props){
                  if(props.singleTodo.completed===true){
                         return "#020020"
                 } else if(calcTimeAvailable()>=50){
-                        return `linear-gradient(to right, green ${calcTimeAvailable()}%, red)`
+                        return `linear-gradient(to right, rgba(0, 196, 22, 0.69) ${calcTimeAvailable()}%, rgba(222, 9, 9, 0.69))`
                 }
-                return `linear-gradient(to right, green  , red ${calcTimeAvailable()}%)`
+                return `linear-gradient(to right, rgba(0, 196, 22, 0.69)  , rgba(222, 9, 9, 0.69) ${calcTimeAvailable()}%)`
+        }
+
+                    
+        const seperateDateTimeString=(string, type)=>{
+                let fullstring = string.split("|");
+                let dt = fullstring[0];
+                let timestring = fullstring[1];
+                let hr = parseInt(timestring.split(":")[0]);
+                let localhr;
+                if(type=="time"){
+                        if(hr>12){
+                         localhr = hr-12;
+                        return `${localhr}:${timestring.split(":")[1]} pm`
+               
+                        } else{
+                        return  `${hr}:${timestring.split(":")[1]} am`
+
+                       }
+                } else{
+                        return dt;
+
+                }
+
         }
         const style = {
-                //height: "10%",
-                //width: "40%",
-                    color: "white",
-                    padding: 5,
-                     border:"1px solid white",
-                    borderRadius: "5%",
-                    display: 'inline-block',
-                    margin: 5,
-                    background: handleBackground()
-                    //background: `linear-gradient(to right, green 0% ${calcTimeAvailable()}%, red ${calcTimeAvailable()}% 100%)`
-            
-                    }        
+                background: handleBackground(),
+                
+                } 
               
 
 
 return (
     <li className="todo" style={style}>
-        <div style={textstyle}>
-        <div className="todoname">
-          <span style={{backgroundColor:"#020020", padding: 2}}>{props.text}</span>      
+        <div className="seperator">
+        <div className="todotextcontainer">
+          <span className="todoname" style={{textDecoration: props.singleTodo.completed===true? "line-through solid white 1px":""}}>{props.text}</span>      
         </div>
-        <span className="dateDue"style={{backgroundColor:"#020020", padding: 2}}>{props.dateDue}</span>
+        <div className="dtcontainer">
+        <span className="dateTimeDue"style={{textDecoration: props.singleTodo.completed===true? "line-through solid white 1px":""}}>{seperateDateTimeString(props.dateDue, "date")}</span>
+        </div>
+        <div className="dtcontainer">
+        <span className="dateTimeDue"style={{textDecoration: props.singleTodo.completed===true? "line-through solid white 1px":""}}>{seperateDateTimeString(props.dateDue, "time")}</span>
         </div>
 
-        <div style={textstyle}>
-        <button  onClick={completeHandler}  className="accept-button">
-                <i className="placegolder"></i>
+        </div>
+
+        <div className="buttoncontainer">
+        <button  onClick={completeHandler}  className="button accept-button">
+                <FontAwesomeIcon icon={faCheck} />
         </button>
-        <button onClick={deleteHandler} className="delete-button">
-                <i className="placegolder"></i>
+        <button onClick={deleteHandler} className="button delete-button">
+                <FontAwesomeIcon icon={faXmark} />
         </button>
         </div>
     </li>
