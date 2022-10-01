@@ -46,7 +46,7 @@ function App() {
     let ndate = new Date(`${dtString[0]}T${dtString[1]}:00`);
     let milldue = ndate.getTime();
     if(singleTodo.completed===true){
-      return  currentMilliSec;
+      return  currentMilliSec *2;
     }
     return milldue - currentMilliSec;
   }
@@ -60,14 +60,14 @@ function App() {
   }
 
 
-// do all the css
+
 
 
 
   
   return (
     <div className="App">
-        <h1>Action Board</h1>
+        <div className='header'>Action Board</div>
         {alertmsg.showAlert&& <AlertMessage setAlertMessage={setAlertMessage} message={alertmsg.message}/>}
           {!showForm? <InsertFormButton  changeForm={changeForm}/>:
           <Form 
@@ -97,8 +97,6 @@ function App() {
         setTodos={setTodos}
         setListFilter={setListFilter}
         sortbydateDue={sortbydateDue}
-
-
         />
     </div>
   );
