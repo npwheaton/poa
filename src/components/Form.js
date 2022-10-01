@@ -37,7 +37,7 @@ function Form(props){
         let inpdate = parseStringtoDateorTime(e.target.value,"date");
         let minimum = parseStringtoDateorTime(minfulldate,"date");
         if(inpdate<minimum){
-            props.setAlert(`Error: Incorrect date. The date needs to be set to ${minfulldate} or later`);
+            props.setAlert(` Incorrect date. The date needs to be set to ${minfulldate} or later`);
         } else{
             props.setInputDate(e.target.value);
         }
@@ -47,7 +47,7 @@ function Form(props){
         let inptime = parseStringtoDateorTime(e.target.value,"time");
         let minimum = parseStringtoDateorTime(mintime,"time");
         if(inptime<minimum && props.inputDate===minfulldate){
-            props.setAlert(`Error: Incorrect time. The Time for ${minfulldate} needs to be set to ${mintime} or later`);
+            props.setAlert(` Incorrect time. The Time for ${minfulldate} needs to be set to ${mintime} or later`);
         }else{  
             props.setInputTime(e.target.value);
 
@@ -69,9 +69,9 @@ function Form(props){
               props.setInputDate("");
               props.changeForm();
         }else if(props.inputText==="" || props.inputDate==="" || props.inputTime===""){
-            props.setAlert("Error: One of the boxes are empty");
+            props.setAlert(" One of the boxes are empty");
         }else if(check4Dupes(props.inputText)){
-            props.setAlert("Error: There is already a task with that name");
+            props.setAlert(" There is already a task with that name");
         }
         
     }

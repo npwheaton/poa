@@ -1,6 +1,6 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faPen } from '@fortawesome/free-solid-svg-icons'
+import { faCirclePlus } from '@fortawesome/free-solid-svg-icons'
 import './InsertFormButton.css'
 
 function InsertFormButton(props){
@@ -9,8 +9,8 @@ function InsertFormButton(props){
     }
     
 return (<button className="InsertFormButton" onClick={handleClicks}>
-    <span className="buttonText">Add Action</span>
-    <FontAwesomeIcon icon={faPen}  className="button-icon"/>
+    <FontAwesomeIcon icon={faCirclePlus}  className="button-icon"/>
+    <span className="buttonText">Action</span>
 </button>)
 }
 export default InsertFormButton;

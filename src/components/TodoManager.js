@@ -1,21 +1,15 @@
 import React from "react";
 import Todo from "./Todo";
 import TodosFilterButton from "./TodosFilterButtons";
+import './TodoManager.css'
 
 function TodoManager(props){
-    const style = {
-        //height: "10%",
-        //width: "40%",
-            padding: 5,
-            display: 'flex',
-            margin: 5,
-            flexWrap: 'wrap'
-    
-            }
+
 return (
-    <div className="TodoContainer">
+    <div className="TodoManager">
         <TodosFilterButton listFilter={props.listFilter} setListFilter={props.setListFilter}/>
-        <ul style={style}>
+        <div className="TodoContainer">
+        <ul className="todolist">
             {props.listFilter==='all'? props.todos.map((todo)=>{
                 return(
                     <Todo 
@@ -50,6 +44,8 @@ return (
             })
 }           
         </ul>
+        </div>
+
 
     </div>
        )

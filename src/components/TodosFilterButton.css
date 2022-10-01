@@ -1,6 +1,9 @@
 .TodosFilterButton{
     display: block;
     text-align: left;
+    margin: 5px;
+    padding:5px;
+
 }
 .button-input{
     border: 1px solid #020020;

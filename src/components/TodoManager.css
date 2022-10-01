@@ -1,0 +1,35 @@
+
+.TodoContainer{
+    max-height: 70vh;
+    overflow-y: auto;
+}
+.TodoContainer::-webkit-scrollbar{
+    width: 8px;
+  
+    
+  }
+  /* Track */
+  .TodoContainer::-webkit-scrollbar-track {
+    
+    background-color: #e3e0e0;
+    
+  }
+  
+  /* Handle */
+  .TodoContainer::-webkit-scrollbar-thumb {
+    background-color:#020020;
+    border-radius: 2px;
+  }
+
+.todolist{
+
+    padding: 5px;
+    display: flex;
+    margin: 5px;
+    flex-wrap: wrap;
+    
+
+
+
+}
+

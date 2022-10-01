@@ -1,11 +1,11 @@
 .InsertFormButton{
-    font-size: 40px;
+    font-size: 30px;
     color: #020020;
     background-color: #f3f3f3;
     border:2px solid #020020;
     border-radius: 10px;
     display: 'inline-block';
-    margin: 5px;
+    margin: 3px;
     padding:  5px 15px;
     
     
@@ -15,11 +15,7 @@
     background-color: #020020;
 }
 .buttonText{
-    font-size: 25px;
-    font-weight: 500;
+    font-weight: 550;
     display: inline-block;
-    margin-right: 3px;
-}
-.button-icon{
-    transform: rotateY(180deg);
+    margin-left: 5px;
 }

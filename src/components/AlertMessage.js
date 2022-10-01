@@ -1,23 +1,19 @@
 import React from "react";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faTriangleExclamation } from '@fortawesome/free-solid-svg-icons'
+import './AlertMessage.css'
 
 function AlertMessage(props){
 const StopAlert = ()=>{
     props.setAlertMessage({message:"", showAlert: false})
 }
-const style = {
-    //height: "10%",
-    //width: "40%",
-    color: "black",
-    padding: 20,
-    border:"2px solid red",
-    borderRadius: "25px",
-    backgroundColor: "#F1EBF2",
-    position: "absolute",
-    zIndex: 10,
-    top: "3%",
-    left: "40%"
 
-}
-return (<span style={style}className="AlertMessage" onClick={StopAlert}>{props.message}</span>)
+return (<div className="AlertMessage" >
+    <span className="AlertContainer" onClick={StopAlert}>
+    <FontAwesomeIcon icon={faTriangleExclamation}  className="alert-icon"/>
+       <span className="AlertText">{props.message}</span> 
+       <div className="dismiss">Tap to dismiss</div>
+    </span> 
+    </div>)
 }
 export default AlertMessage;
