@@ -11,6 +11,7 @@ function App() {
   const [inputText, setInputText] = useState("");
   const [inputDate, setInputDate] = useState("");
   const [inputTime, setInputTime] = useState("");
+  const [inputPriority, setInputPriority] = useState(2);
   const [todos, setTodos] = useState([]);
   const [currentMilliSec, setcurrentMilliSec] = useState(Date.now());
   const [listFilter, setListFilter] = useState("all");
@@ -23,6 +24,8 @@ function App() {
       
 
     const myInterval = setInterval(()=>{setcurrentMilliSec(Date.now())},60000);
+
+
 
     return () => clearInterval(myInterval);
   }, []);
@@ -51,11 +54,37 @@ function App() {
     return milldue - currentMilliSec;
   }
   const sortbydateDue=(a,b)=>{
-    if(calcTillDateDue(a) > calcTillDateDue(b)){
-      return 1;
-  } else if(calcTillDateDue(a) < calcTillDateDue(b)){
-      return -1;
-  }
+    if(a.priority>b.priority ){
+      if(a.completed===false &&b.completed===false){
+        return -1;
+      }else if( a.completed===true &&b.completed===false){
+        return  1;
+      }else if( a.completed===false &&b.completed===true){
+        return -1;
+      }else if( a.completed===true &&b.completed===true){
+        return  -1;
+      }
+      
+    }else if(a.priority<b.priority ){
+      if(a.completed===false &&b.completed===false){
+        return 1;
+      }else if( a.completed===true &&b.completed===false){
+        return  1;
+      }else if( a.completed===false &&b.completed===true){
+        return -1;
+      }else if( a.completed===true &&b.completed===true){
+        return  1;
+      }
+    }else if(a.priority===b.priority){
+      if(calcTillDateDue(a) > calcTillDateDue(b)){
+        return 1;
+      } else if(calcTillDateDue(a) < calcTillDateDue(b)){
+        return -1;
+      }else{
+        return 0;
+      }
+    }
+
   return 0;
   }
 
@@ -84,6 +113,8 @@ function App() {
           setAlert={setAlert}
           showAlert={alertmsg.showAlert}
           sortbydateDue={sortbydateDue}
+          setInputPriority={setInputPriority}
+          inputPriority={inputPriority}
 
           
         />
@@ -97,6 +128,8 @@ function App() {
         setTodos={setTodos}
         setListFilter={setListFilter}
         sortbydateDue={sortbydateDue}
+        setInputPriority={setInputPriority}
+        inputPriority={inputPriority}
         />
     </div>
   );
