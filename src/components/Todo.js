@@ -38,11 +38,11 @@ function Todo(props){
         
         const handleBackground=()=>{
                  if(props.singleTodo.completed===true){
-                        return "#020020"
+                        return "#f3f3f3"
                 } else if(calcTimeAvailable()>=50){
-                        return `linear-gradient(to right, rgba(0, 196, 22, 0.69) ${calcTimeAvailable()}%, rgba(222, 9, 9, 0.69))`
+                        return `linear-gradient(to right, rgba(0, 196, 22, 0.75) ${calcTimeAvailable()}%, rgba(222, 9, 9, 0.75))`
                 }
-                return `linear-gradient(to right, rgba(0, 196, 22, 0.69)  , rgba(222, 9, 9, 0.69) ${calcTimeAvailable()}%)`
+                return `linear-gradient(to right, rgba(0, 196, 22, 0.75)  , rgba(222, 9, 9, 0.75) ${calcTimeAvailable()}%)`
         }
 
                     
@@ -58,6 +58,9 @@ function Todo(props){
                         return `${localhr}:${timestring.split(":")[1]} pm`
                
                         } else{
+                                if(hr===0){
+                                 return  `12:${timestring.split(":")[1]} am`
+                                }
                         return  `${hr}:${timestring.split(":")[1]} am`
 
                        }
@@ -67,6 +70,18 @@ function Todo(props){
                 }
 
         }
+        const deciferPriority=()=>{
+                if(props.singleTodo.completed===true){
+                        return "completepriority";
+                }else if(props.singleTodo.priority===3){
+                        return "Urgent";
+                }else if(props.singleTodo.priority===2){
+                        return "Medium";
+                }else if(props.singleTodo.priority===1){
+                        return "Optional";
+                }
+                return "completepriority";
+        }
         const style = {
                 background: handleBackground(),
                 
@@ -75,7 +90,8 @@ function Todo(props){
 
 
 return (
-    <li className="todo" style={style}>
+    <li className="todo" >
+        <div className='todocontent'>
         <div className="seperator">
         <div className="todotextcontainer">
           <span className="todoname" style={{textDecoration: props.singleTodo.completed===true? "line-through solid white 1px":""}}>{props.text}</span>      
@@ -85,6 +101,12 @@ return (
         </div>
         <div className="dtcontainer">
         <span className="dateTimeDue"style={{textDecoration: props.singleTodo.completed===true? "line-through solid white 1px":""}}>{seperateDateTimeString(props.dateDue, "time")}</span>
+        </div>
+        <div className="dtcontainer">
+        <span className={`dateTimeDue ${deciferPriority()}`}>!
+        <span className='tooltip'>{deciferPriority()==="completepriority"?"No priority":deciferPriority()}</span>
+        </span>
+        
         </div>
 
         </div>
@@ -97,6 +119,9 @@ return (
                 <FontAwesomeIcon icon={faXmark} />
         </button>
         </div>
+        </div>
+        <div className='progressbar' style={style}></div>
+
     </li>
        )
 }

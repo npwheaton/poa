@@ -37,7 +37,8 @@
 .form-text{
     display: block;
     margin: auto;
-    margin-top: 20px;
+    margin-bottom: 10px;
+    margin-top: 5px;
     font-size: 20px;
     width: 80%;
     border:1px solid #020020;
@@ -47,12 +48,16 @@
 .form-dt{
     width: 60%;
     margin: auto;
-    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-top: 5px;
     padding: 12px 20px;
     font-size: 20px;
     border:1px solid #020020;
     border-radius: 10px;
     display: block;
+}
+.form-label{
+    font-size: 1.2rem;
 }
 .form-button{
 
@@ -65,7 +70,8 @@
     display: 'inline-block';
     margin: auto;
     display: block;
-    margin-top: 10px;
+    margin-top: 25px;
+    margin-bottom: 10px;
 
 }
 .button-text{

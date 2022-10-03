@@ -48,6 +48,7 @@ function Form(props){
         let minimum = parseStringtoDateorTime(mintime,"time");
         if(inptime<minimum && props.inputDate===minfulldate){
             props.setAlert(` Incorrect time. The Time for ${minfulldate} needs to be set to ${mintime} or later`);
+            e.target.value="";
         }else{  
             props.setInputTime(e.target.value);
 
@@ -61,19 +62,34 @@ function Form(props){
                 text: props.inputText,
                 dateCreated: Date.now(),
                 dateDue: `${props.inputDate}|${props.inputTime}`,
-                completed: false
+                completed: false,
+                priority: props.inputPriority
               }
               props.setTodos([singleTodo,...props.todos].sort(props.sortbydateDue));
               props.setInputText("");
               props.setInputTime("");
               props.setInputDate("");
               props.changeForm();
+              props.setInputPriority(2);
         }else if(props.inputText==="" || props.inputDate==="" || props.inputTime===""){
             props.setAlert(" One of the boxes are empty");
         }else if(check4Dupes(props.inputText)){
             props.setAlert(" There is already a task with that name");
         }
         
+    }
+    const handlePriority=(e)=>{
+
+        if(e.target.value==="Medium"){
+            props.setInputPriority(2);
+        }else if(e.target.value==="Urgent"){
+            props.setInputPriority(3);
+        }else{
+            props.setInputPriority(1);
+
+        }
+
+
     }
 
     return ( 
@@ -83,9 +99,19 @@ function Form(props){
         <div className="form-cancel" onClick={props.changeForm}>
         <FontAwesomeIcon icon={faX} />
         </div>
-            <input type="text" value={props.inputText} className="form-text" placeholder="Enter Text Here" onChange={handleInput} />
-            <input type="date" className="form-date form-dt"onInput={handleDate} min={minfulldate} />
-            <input type="time" className="form-time form-dt"onInput={handleTime}  />
+            <label htmlFor="form-text" className="form-label">Action</label>
+            <input type="text" value={props.inputText} className="form-text" id="form-text" placeholder="Enter Text Here" onChange={handleInput} />
+            <label htmlFor="form-date"className="form-label">Date</label>
+            <input type="date" className="form-date form-dt" id="form-date" onInput={handleDate} min={minfulldate} />
+            <label htmlFor="form-time" className="form-label">Time</label>
+            <input type="time" className="form-time form-dt" id="form-time" onInput={handleTime}  />
+            <label htmlFor="priority" className="form-label">Priority</label>
+            <select name="priority" id="priority"  className="form-dt" onInput={handlePriority}>
+                <option value={"Medium"}>Medium</option>
+                <option value={"Urgent"}>Urgent</option>
+                <option value={"Optional"}>Optional</option>
+            </select>
+
             <button className="form-button" type="submit" onClick={handleTodos}> 
                 <span className="button-text">Submit</span>
                 <FontAwesomeIcon icon={faPaperPlane} /> 

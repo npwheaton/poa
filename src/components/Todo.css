@@ -1,13 +1,23 @@
 .todo{
-    color: white;
+    color: #f3f3f3;
     padding: 10px;
     border: 1px solid #020020;
     border-radius: 15px;
-    display: flex;
+    display: inline-block;
     margin: 5px;
+    background-color: #020020;
 
 
+}
+.todocontent{
+    display: flex;
 
+}
+.progressbar{
+    height: 5px;
+    background-color: #f3f3f3;
+    margin-top: 5px;
+    border-radius: 15px;
 
 }
 .seperator{
@@ -16,7 +26,6 @@
 
 }
 .todoname{
-    background: rgba(2, 0, 32, 0.8);
     padding: 3px;
     border-radius: 10px;
     font-size: 1.8rem;
@@ -27,6 +36,7 @@
 }
 .dtcontainer{
     margin-bottom: 5px;
+    position: relative;
 }
 .buttoncontainer{
     text-align: right;
@@ -35,14 +45,84 @@
 
 }
 .dateTimeDue{
-    background-color:#020020;
+
     padding: 2px;
     font-size: 1rem;
     border-radius: 5px;
     
 }
+.Medium{
+    background-color: yellow;
+    color: #020020;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 0 7px;
+    user-select: none;
+
+}
+.Urgent{
+    background-color: orangered;
+    color: #020020;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 0 7px;
+    user-select: none;
+
+
+
+}
+.Optional{
+    background-color: greenyellow;
+    color: #020020;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 0 7px;
+    user-select: none;
+
+
+
+}
+.completepriority{
+    background-color: #f3f3f3;
+    color: #020020;
+    font-size: 1.1rem;
+    border-radius: 50%;
+    font-weight: bold;
+    padding: 0 7px;
+    user-select: none;
+
+}
+ .dateTimeDue .tooltip{
+    position: absolute;
+    visibility: hidden;
+    color:#020020;
+    background-color:white;
+    border-radius: 10px;
+    padding: 4px;
+    left: 25px;
+    font-weight: 500;
+    z-index: 2;
+
+
+}
+.dateTimeDue:hover .tooltip{
+
+    visibility: visible;
+
+}
+.timebar{
+    height: 2px;
+    width: 100%;
+    border: 1px solid #020020;
+    border-radius: 15px;
+    display: block;
+
+}
 .button{
-    color: white;
+    color: #f3f3f3;
     font-size: 25px;
     border-radius: 10px;
     background: rgba(2, 0, 32, 0.8);

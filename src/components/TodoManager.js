@@ -21,6 +21,8 @@ return (
                     setTodos={props.setTodos}
                     todos={props.todos}
                     sortbydateDue={props.sortbydateDue}
+                    setInputPriority={props.setInputPriority}
+                    inputPriority={props.inputPriority}
                     
                     />
                 )
@@ -36,6 +38,8 @@ return (
                         setTodos={props.setTodos}
                         todos={props.todos}
                         sortbydateDue={props.sortbydateDue}
+                        setInputPriority={props.setInputPriority}
+                        inputPriority={props.inputPriority}
                         
                         />
                     )
