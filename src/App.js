@@ -98,8 +98,8 @@ function App() {
     <div className="App">
         <div className='header'>Action Board</div>
         {alertmsg.showAlert&& <AlertMessage setAlertMessage={setAlertMessage} message={alertmsg.message}/>}
-          {!showForm? <InsertFormButton  changeForm={changeForm}/>:
-          <Form 
+        <InsertFormButton  changeForm={changeForm}/>
+          {showForm?          <Form 
           setInputText={setInputText}
           setInputDate={setInputDate}
           setInputTime={setInputTime} 
@@ -117,7 +117,8 @@ function App() {
           inputPriority={inputPriority}
 
           
-        />
+        /> :""
+
         }
         
         <TodoManager
