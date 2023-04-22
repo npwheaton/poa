@@ -1,2 +1,2 @@
 # Plan of Action
-react todo app
+react todo app available at https://planofaction.netlify.app/
