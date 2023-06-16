@@ -52,7 +52,7 @@ function Todo(props){
                 let timestring = fullstring[1];
                 let hr = parseInt(timestring.split(":")[0]);
                 let localhr;
-                if(type=="time"){
+                if(type==="time"){
                         if(hr>12){
                          localhr = hr-12;
                         return `${localhr}:${timestring.split(":")[1]} pm`

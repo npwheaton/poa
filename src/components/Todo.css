@@ -27,8 +27,8 @@
 }
 .todoname{
     padding: 3px;
-    border-radius: 10px;
-    font-size: 1.8rem;
+    font-weight: 600;
+    font-size: 1.4rem;
     word-break: break-word;
 }
 .todotextcontainer{
