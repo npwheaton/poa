@@ -20,6 +20,12 @@
     right: 0;
     top: 0;
     font-size: 1.6rem;
+    cursor: pointer;
+    transition: color 200ms, transform 200ms;
+}
+.form-cancel:hover{
+color: red;
+transform: scale(1.1);
 }
 
 
@@ -55,6 +61,7 @@
     border:1px solid #020020;
     border-radius: 10px;
     display: block;
+    cursor: pointer;
 }
 .form-label{
     font-size: 1.2rem;
@@ -72,6 +79,8 @@
     display: block;
     margin-top: 25px;
     margin-bottom: 10px;
+    transition: background-image 200ms, transform 200ms;
+    cursor: pointer;
 
 }
 .button-text{
@@ -80,6 +89,6 @@
 }
 .form-button:hover{
 
-    color: #f3f3f3;
-    background-color: #020020;
+    background-image: linear-gradient(to left,#F95F3D,#FCBA4C);
+    transform: scale(1.1);
 }

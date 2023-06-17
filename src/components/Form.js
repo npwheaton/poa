@@ -91,6 +91,7 @@ function Form(props){
 
 
     }
+    
 
     return ( 
     <div className="form">
@@ -107,9 +108,9 @@ function Form(props){
             <input type="time" className="form-time form-dt" id="form-time" onInput={handleTime}  />
             <label htmlFor="priority" className="form-label">Priority</label>
             <select name="priority" id="priority"  className="form-dt" onInput={handlePriority}>
-                <option value={"Medium"}>Medium</option>
-                <option value={"Urgent"}>Urgent</option>
-                <option value={"Optional"}>Optional</option>
+                <option  value={"Medium"}>Medium</option>
+                <option   value={"Urgent"}>Urgent</option>
+                <option   value={"Optional"}>Optional</option>
             </select>
 
             <button className="form-button" type="submit" onClick={handleTodos}> 

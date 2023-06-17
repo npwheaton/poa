@@ -9,8 +9,10 @@ function InsertFormButton(props){
     }
     
 return (<button className="InsertFormButton" onClick={handleClicks}>
+    <div className="loadinganim"></div>
     <FontAwesomeIcon icon={faCirclePlus}  className="button-icon"/>
     <span className="buttonText">Action</span>
+    
 </button>)
 }
 export default InsertFormButton;
