@@ -37,12 +37,25 @@ function Todo(props){
               }
         
         const handleBackground=()=>{
-                 if(props.singleTodo.completed===true){
+                 if(props.singleTodo.completed===false){
                         return "#f3f3f3"
-                } else if(calcTimeAvailable()>=50){
-                        return `linear-gradient(to right, rgba(0, 196, 22, 0.75) ${calcTimeAvailable()}%, rgba(222, 9, 9, 0.75))`
+                } else{
+                        return ` url(/images/grey&whitecheckered2.jpg)`
                 }
-                return `linear-gradient(to right, rgba(0, 196, 22, 0.75)  , rgba(222, 9, 9, 0.75) ${calcTimeAvailable()}%)`
+                
+        }
+        const handleprogressbar=()=>{
+                const availtime = calcTimeAvailable();
+                if(props.singleTodo.completed===true){
+                        return "0%";
+                } else if(availtime<=0){
+                        return "0%";
+                }else if(availtime>100){
+                        return "100%";
+                }else{
+                        return `${availtime}%`;
+                }
+                    
         }
 
                     
@@ -76,34 +89,53 @@ function Todo(props){
                 }else if(props.singleTodo.priority===3){
                         return "Urgent";
                 }else if(props.singleTodo.priority===2){
-                        return "Medium";
+                        return "Normal";
                 }else if(props.singleTodo.priority===1){
                         return "Optional";
                 }
                 return "completepriority";
         }
-        const style = {
-                background: handleBackground(),
+
+
+        const shakeanimation=()=>{
+                const priority = deciferPriority();
+                if(priority==="completepriority" || priority==="Optional"){
+                        return "";
+                }else{
+                        const availtime = calcTimeAvailable();
+                        if(availtime>0 && availtime<=20){
+                                return "shake";
+                        }else{
+                                return "";
+                        }
+                        
+                }
+        }
+        const backgroundbarstyle = {
+                backgroundImage: handleBackground(),
                 
                 } 
-              
+        const progressbarstyle= {
+                width: handleprogressbar()
+        }
+        
 
 
 return (
     <li className="todo" >
         <div className='todocontent'>
         <div className="seperator">
-        <div className="todotextcontainer">
-          <span className="todoname" style={{textDecoration: props.singleTodo.completed===true? "line-through solid white 1px":""}}>{props.text}</span>      
+        <div className={`todotextcontainer ${props.singleTodo.completed===true?'white':'text-fill'}`}>
+          <span className={`todoname ${props.singleTodo.completed===true?'line-thru':''}`} >{props.text}</span>      
         </div>
         <div className="dtcontainer">
-        <span className="dateTimeDue"style={{textDecoration: props.singleTodo.completed===true? "line-through solid white 1px":""}}>{seperateDateTimeString(props.dateDue, "date")}</span>
+        <span className={`dateTimeDue ${props.singleTodo.completed===true?'line-thru':''}`}>{seperateDateTimeString(props.dateDue, "date")}</span>
         </div>
         <div className="dtcontainer">
-        <span className="dateTimeDue"style={{textDecoration: props.singleTodo.completed===true? "line-through solid white 1px":""}}>{seperateDateTimeString(props.dateDue, "time")}</span>
+        <span className={`dateTimeDue ${props.singleTodo.completed===true?'line-thru':''}`}>{seperateDateTimeString(props.dateDue, "time")}</span>
         </div>
         <div className="dtcontainer">
-        <span className={`dateTimeDue ${deciferPriority()}`}>!
+        <span className={`dateTimeDue ${deciferPriority()} ${shakeanimation()}`}>!
         <span className='tooltip'>{deciferPriority()==="completepriority"?"No priority":deciferPriority()}</span>
         </span>
         
@@ -120,7 +152,9 @@ return (
         </button>
         </div>
         </div>
-        <div className='progressbar' style={style}></div>
+        <div className='backgroundbar' style={backgroundbarstyle}>
+                <div className='progressbar' style={progressbarstyle}></div>
+        </div>
 
     </li>
        )
