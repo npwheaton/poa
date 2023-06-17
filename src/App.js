@@ -96,7 +96,7 @@ function App() {
   
   return (
     <div className="App">
-        <div className='header'>Action Board</div>
+        <div className='header'> <span className='headerbackground'>Action Board</span></div>
         {alertmsg.showAlert&& <AlertMessage setAlertMessage={setAlertMessage} message={alertmsg.message}/>}
         <InsertFormButton  changeForm={changeForm}/>
           {showForm?          <Form 

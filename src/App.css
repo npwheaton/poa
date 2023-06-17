@@ -34,8 +34,15 @@ font-weight: bold;
 font-style: italic;
 margin-bottom: 20px;
 background-color: #020020;
-color:#f3f3f3;
 
+
+
+
+}
+.headerbackground{
+background-image:  linear-gradient(to left,#F95F3D,#FCBA4C);
+background-clip: text;
+-webkit-text-fill-color: transparent;
 
 }
 
