@@ -111,6 +111,19 @@ function Todo(props){
                         
                 }
         }
+
+        const dueToday=()=>{
+                let dtString = props.singleTodo.dateDue.split('|');
+                let ddate = new Date(`${dtString[0]}T${dtString[1]}:00`);
+                let cdate = new Date(props.currentMilliSec);
+                let currdate = `${cdate.getFullYear()}${cdate.getMonth()+1}${cdate.getDate()}`;
+                let duedate = `${ddate.getFullYear()}${ddate.getMonth()+1}${ddate.getDate()}`;
+                if(duedate===currdate){
+                        return true;
+                }else{
+                        return false;
+                }
+        }
         const backgroundbarstyle = {
                 backgroundImage: handleBackground(),
                 
@@ -128,14 +141,14 @@ return (
         <div className={`todotextcontainer ${props.singleTodo.completed===true?'white':'text-fill'}`}>
           <span className={`todoname ${props.singleTodo.completed===true?'line-thru':''}`} >{props.text}</span>      
         </div>
-        <div className="dtcontainer">
-        <span className={`dateTimeDue ${props.singleTodo.completed===true?'line-thru':''}`}>{seperateDateTimeString(props.dateDue, "date")}</span>
+        <div className={`dtcontainer ${props.singleTodo.completed===true?'':dueToday()?'duetoday':''} ${shakeanimation()}`}>
+        <span className={`dateTimeDue ${props.singleTodo.completed===true?'line-thru':''} `}>{props.singleTodo.completed===true?seperateDateTimeString(props.dateDue, "date"):dueToday()?'Due Today':seperateDateTimeString(props.dateDue, "date")}</span>
         </div>
         <div className="dtcontainer">
         <span className={`dateTimeDue ${props.singleTodo.completed===true?'line-thru':''}`}>{seperateDateTimeString(props.dateDue, "time")}</span>
         </div>
         <div className="dtcontainer">
-        <span className={`dateTimeDue ${deciferPriority()} ${shakeanimation()}`}>!
+        <span className={`dateTimeDue ${deciferPriority()}`}>!
         <span className='tooltip'>{deciferPriority()==="completepriority"?"No priority":deciferPriority()}</span>
         </span>
         
