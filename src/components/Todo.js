@@ -149,8 +149,8 @@ return (
         <div className={`todotextcontainer ${props.singleTodo.completed===true?'white':'text-fill'}`}>
           <span className={`todoname ${props.singleTodo.completed===true?'line-thru':''}`} >{props.text}</span>      
         </div>
-        <div className={`dtcontainer ${props.singleTodo.completed===true?'':overdue()?'duetoday':dueToday()?'duetoday':''} ${shakeanimation()}`}>
-        <span className={`dateTimeDue ${props.singleTodo.completed===true?'line-thru':''} `}>{props.singleTodo.completed===true?seperateDateTimeString(props.dateDue, "date"):overdue()?'Overdue':dueToday()?'Due Today':seperateDateTimeString(props.dateDue, "date")}</span>
+        <div className='dtcontainer'>
+        <span className={`dateTimeDue ${props.singleTodo.completed===true?'line-thru':overdue()?'duetoday':dueToday()?'duetoday':''} ${shakeanimation()}`}>{props.singleTodo.completed===true?seperateDateTimeString(props.dateDue, "date"):overdue()?'Overdue':dueToday()?'Due Today':seperateDateTimeString(props.dateDue, "date")}</span>
         </div>
         <div className="dtcontainer">
         <span className={`dateTimeDue ${props.singleTodo.completed===true?'line-thru':''}`}>{seperateDateTimeString(props.dateDue, "time")}</span>

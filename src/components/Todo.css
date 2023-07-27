@@ -88,7 +88,7 @@
 
 }
 .dateTimeDue{
-
+    display: inline-block;
     padding: 2px;
     font-size: 1rem;
     border-radius: 5px;
